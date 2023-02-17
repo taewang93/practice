@@ -46,7 +46,9 @@
     <button class="draggable 3" draggable="true">🐶</button>
     <button class="draggable 4" draggable="true">🐱</button>
   </div>
-  
+  <br />
+  <div>
+</div>
   <script>
     const draggables = document.querySelectorAll('.draggable');
     const containers = document.querySelectorAll('.container');
@@ -67,7 +69,6 @@
         const afterElement = getDragAfterElement(container, e.clientX);
         const draggable = document.querySelector('.dragging');
 
-        console.log(afterElement);
         if (afterElement === undefined) {
           container.appendChild(draggable);
         } else {
@@ -80,9 +81,6 @@
       const draggableElements = [
         ...container.querySelectorAll('.draggable:not(.dragging)'),
       ];
-
-      console.log('1', container);
-      console.log('2', [...container.querySelectorAll('.draggable:not(.dragging)')]);
 
       return draggableElements.reduce(
         (closest, child) => {
