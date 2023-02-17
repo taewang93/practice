@@ -1,0 +1,178 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>drag & drop</title>
+  <style>
+    body {
+      background-color: #3d4e56fa;
+      margin: 0;
+      padding: 0;
+    }
+
+    .body {
+      display: flex;
+    }
+
+    button {
+      width: 70px;
+      height: 70px;
+      border: none;
+      border-radius: 8px;
+      margin: 12px;
+      cursor: move;
+      font-size: 30px;
+      background: #eaeaea4f;
+    }
+
+    .container {
+      margin: 10px;
+      padding: 10px;
+      background-color: #b5c1dc57;
+      border-radius: 8px;
+    }
+      
+      .container2 {
+      margin: 10px;
+      padding: 55px;
+      background-color: #b5c1dc57;
+      border-radius: 8px;
+    }
+
+
+    .draggable.dragging {
+      opacity: 0.5;
+    }
+  </style>
+</head>
+<body>
+  
+  <div class="body">
+    <div class="container">
+      <button class="draggable item" draggable="true">🦊</button>
+    </div>
+    <div class="container2">
+    </div>
+  </div>
+
+
+  <!-- <script>
+    function console(e) {
+      if(document.querySelectorAll('p').length === 10) {
+        document.querySelectorAll('p').forEach(e => e.remove())
+      }
+      const p = document.createElement('p');
+      p.textContent = e;
+      document.body.append(p);
+    }
+  </script> -->
+  <script>
+    const item = document.querySelector('.item');
+    const container = document.querySelector('.container');
+    const container2 = document.querySelector('.container2');
+
+    /*
+      dragstart
+      - 드래그가 시작되는 순간
+    */
+    // item.addEventListener('dragstart', (e) => {
+    //   console.log('dragstart');
+    // });
+
+    /*
+      drag
+      - 드래그 할때 발생
+    */
+    // item.addEventListener('drag', (e) => {
+    //   console.log('drag');
+    // });
+
+    /*
+      dragenter
+      - 이벤트를 지정한 요소에 드래그한 아이템이 들어가면 발생
+      - 드래그 하는 요소가 이벤트를 달아놓은 요소안에 진입할때 발생
+    */
+    // container2.addEventListener('dragenter', (e) => {
+    //   console.log('dragenter');
+    // });
+
+    /*
+      dragover
+      - 이 이벤트가 달린 영역 위에 드래그 요소가 있으면 발생
+    */
+    // container2.addEventListener('dragover', (e) => {
+    //   console.log(e);
+    //   console.log('dragover');
+    // });
+
+    /*
+      dragleave
+      - dragexit이벤트 대신 사용
+      - 드래그 되고있는 요소가 이 이벤트가 달린 요소에 들어갔다 나가는 시점에 이벤트 발생
+      - dragenter이벤트와 겹칠수 있기 때문에 e.prevenrDefault()로 제한하며 둘이 겷바하여 사용
+    */
+    // container.addEventListener('dragenter', (e) => {
+    //   e.preventDefault();
+    //   console.log(e);
+    //   console.log('drag enter');
+    // });
+    // container.addEventListener('dragleave', (e) => {
+    //   e.preventDefault();
+    //   console.log(e);
+    //   console.log('drag leave');
+    // });
+    // container2.addEventListener('dragenter', (e) => {
+    //   e.preventDefault();
+    //   console.log(e);
+    //   console.log('drag enter');
+    // });
+    // container2.addEventListener('dragleave', (e) => {
+    //   e.preventDefault();
+    //   console.log(e);
+    //   console.log('drag leave');
+    // });
+    /*
+      drop
+      - 이 이벤트가 달린 요소에서 드래그를 끝내면 발생(dragover과 같이 써야함)
+      - drop 이벤트 역시 드롭될 요소에는 e.preventDefault()를 사용하지 않으면 정상작동이 안할수 있음
+      - 단독으로 사용했을대는 동작하지 않았고 dragover이벤트와 함께 사용했을때 동작
+    */
+    // container.addEventListener('dragover', (e) => {
+    //   e.preventDefault();
+    // });
+    // container.addEventListener('drop', (e) => {
+    //   e.preventDefault();
+    //   console.log('container drop');
+    // });
+    // container2.addEventListener('dragover', (e) => {
+    //   e.preventDefault();
+    // });
+    // container2.addEventListener('drop', (e) => {
+    //   e.preventDefault();
+    //   console.log('container2 drop');
+    // });
+
+    /*
+      dragend
+      - 요소의 드래그가 끝날때 발생
+    */
+    // item.addEventListener('dragend', (e) => {
+    //   console.log(e);
+    //   console.log('dragend');
+    // });
+
+
+    /* *****************
+      dataTransfer 객체
+    */
+   item.addEventListener('drag', (event) => {
+    console.log(event.dataTransfer);
+   });
+
+
+  </script>
+
+</body>
+</html>
